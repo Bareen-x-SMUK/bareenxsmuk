@@ -1,0 +1,67 @@
+---
+const { data } = Astro.props;
+console.log(data);
+---
+
+<article>
+  <img class="product_billede" src={data.image} alt=`Image of ${data.product}` />
+  <h2 class="text_over1">{data.name}</h2>
+  <p class="text_over2">{data.price}</p>
+</article>
+
+<style>
+  article {
+    position: relative;
+    display: inline-block;
+  }
+
+  .product_billede {
+    border: 2px solid black; /* tykkelse, type og farve */
+    display: inline-block;
+  }
+
+  .text_over1 {
+    position: absolute;
+    font-size: 15px;
+    top: 85%;
+    left: 2%;
+    color: #000000;
+    padding: 10px;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .text_over2 {
+    position: absolute;
+    font-size: 14px;
+    top: 89%;
+    left: 2%;
+    color: #000000;
+    padding: 10px;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  @media (max-width: 600px) {
+    .text_over1 {
+      position: absolute;
+      font-size: 15px;
+      top: 78%;
+      left: 2%;
+      color: #000000;
+      padding: 10px;
+    }
+
+    .text_over2 {
+      position: absolute;
+      font-size: 14px;
+      top: 85%;
+      left: 2%;
+      color: #000000;
+      padding: 10px;
+    }
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+</style>
