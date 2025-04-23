@@ -1,59 +1,95 @@
 ---
-import Footer from "../pages/components/footer.astro"
-import Header from "../pages/components/header.astro"
-import Hashtags from "../pages/components/hashtags.astro"
-import Hero from "../pages/components/hero.astro"
-import Herotxt from "../pages/components/herotxt.astro"
-import Poster from "../pages/components/poster.astro"
-import Shop from "../pages/components/shop.astro"
-import Product from "../pages/components/product.astro"
+import Footer from "../pages/components/footer.astro";
+import Header from "../pages/components/header.astro";
+import Hashtags from "../pages/components/hashtags.astro";
+import Hero from "../pages/components/hero.astro";
+import Herotxt from "../pages/components/herotxt.astro";
+import Poster from "../pages/components/poster.astro";
+import Shop from "../pages/components/shop.astro";
+import Product from "../pages/components/product.astro";
 
+const url = "https://qpiudigbgrcogizcwmos.supabase.co/rest/v1/bareen-data?select=*";
+const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFwaXVkaWdiZ3Jjb2dpemN3bW9zIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQyNjg2NjksImV4cCI6MjA1OTg0NDY2OX0.FYKmKwY1afQcID2nRXTkQ3Pgz-anREvuSBjRIBsiy1w";
 
+const options = {
+  headers: {
+    apikey: key,
+  },
+};
+
+const request = await fetch(url, options);
+const rawData = await request.json();
 ---
 
 <html lang="en">
-	<head>
   <head>
     <meta name="robots" content="noindex, nofollow" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bareen x Smuk</title>
     <link rel="stylesheet" href="main.css" />
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barriecito&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-                
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barriecito&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
   </head>
 
+  <body>
+    <body>
+      <Header />
+      <main>
+        <Hero />
+        <Herotxt />
+        <Poster />
+        <Shop />
+        <h1>BAREEN X SMUK <span class="stor">COLLECTION</span></h1>
+        <section class="product">
+          {
+            rawData.map((product) => {
+              return <Product data={product} />;
+            })
+          }
+        </section>
+        <Hashtags />
 
-	<body>
-	 <body>
-		<Header />
-    <main>
-		<Hero />
-		<Herotxt />
-		<Poster />
-		<Shop />
-		<Product />
-		<Hashtags />
-    </main>
-
-     <footer>
-		<Footer />
-    </footer>
+        <footer>
+          <Footer />
+        </footer>
+      </main>
+    </body>
   </body>
-	</body>
+
+  <style>
+    body {
+      background-color: white;
+    }
+
+    .product {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      margin-bottom: 2.5rem;
+    }
+
+    h1 {
+      color: #c3c0c0;
+      font-size: 15px;
+      margin-left: 4rem;
+    }
+
+    .stor {
+      font-size: 32px;
+    }
+    @media (max-width: 600px) {
+      h1 {
+        color: #c3c0c0;
+        font-size: 15px;
+        margin-left: 1rem;
+      }
+      .stor {
+        font-size: 20px;
+      }
+    }
+  </style>
 </html>
-
-
-<style>
-
-body{
-	background-color: white;
-}
-
-
-</style>
