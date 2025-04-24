@@ -1,12 +1,14 @@
 ---
-import Footer from "../pages/components/footer.astro";
-import Header from "../pages/components/header.astro";
-import Hashtags from "../pages/components/hashtags.astro";
-import Hero from "../pages/components/hero.astro";
-import Herotxt from "../pages/components/herotxt.astro";
-import Poster from "../pages/components/poster.astro";
-import Shop from "../pages/components/shop.astro";
-import Product from "../pages/components/product.astro";
+import "../styles/main.css";
+
+import Footer from "../components/footer.astro";
+import Header from "../components/header.astro";
+import Hashtags from "../components/hashtags.astro";
+import Hero from "../components/hero.astro";
+import Herotxt from "../components/herotxt.astro";
+import Poster from "../components/poster.astro";
+import Shop from "../components/shop.astro";
+import Product from "../components/product.astro";
 
 const url = "https://qpiudigbgrcogizcwmos.supabase.co/rest/v1/bareen-data?select=*";
 const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFwaXVkaWdiZ3Jjb2dpemN3bW9zIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQyNjg2NjksImV4cCI6MjA1OTg0NDY2OX0.FYKmKwY1afQcID2nRXTkQ3Pgz-anREvuSBjRIBsiy1w";
@@ -27,7 +29,6 @@ const rawData = await request.json();
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bareen x Smuk</title>
-    <link rel="stylesheet" href="main.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Barriecito&display=swap" rel="stylesheet" />

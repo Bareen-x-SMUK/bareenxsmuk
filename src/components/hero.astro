@@ -1,0 +1,68 @@
+---
+
+---
+
+<div id="hero" class="hero_grid">
+  <div class="hero_section">
+    <video autoplay muted loop id="bg_video">
+      <source src="smukfest.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay">
+      <img src="logo.webp" alt="Bareen x Smukfest Logo" class="logo" />
+      <h1>BAREEN X SMUKFEST</h1>
+      <button>2025</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .hero-_section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  #bg_video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  .overlay {
+    position: relative;
+    text-align: center;
+    padding-top: 1%;
+    padding-bottom: 10%;
+  }
+
+  .logo {
+    width: 400px;
+    margin-bottom: 2rem;
+    margin-top: 2.5rem;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    font-style: italic;
+    color: white;
+    text-shadow: 1px 1px 4px black;
+  }
+
+  button {
+    padding: 0.2rem 2.3rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: 1px solid white;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    border-radius: 25px;
+  }
+</style>
